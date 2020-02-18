@@ -30,3 +30,8 @@
 *.exe
 *.out
 *.app
+/WinAPI创建窗口/.vs/WinAPI创建窗口/v15
+/WinAPI创建窗口/Debug
+/WinAPI创建窗口/WinAPI创建窗口/Debug
+/02_第一个MFC程序/.vs/02_第一个MFC程序/v15
+/02_第一个MFC程序/02_第一个MFC程序/Debug
