@@ -15,7 +15,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="10_Dialog.h">
+    <ClInclude Include="11_BasicDialog.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="11_BasicDialogDlg.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="stdafx.h">
@@ -24,57 +27,72 @@
     <ClInclude Include="targetver.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="MainFrm.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="10_DialogDoc.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="10_DialogView.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="Resource.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="MyDialog.h">
+    <ClInclude Include="MyButton.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="10_Dialog.cpp">
+    <ClCompile Include="11_BasicDialog.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="11_BasicDialogDlg.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="stdafx.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="MainFrm.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="10_DialogDoc.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="10_DialogView.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="MyDialog.cpp">
+    <ClCompile Include="MyButton.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="My10Dialog.rc">
+    <ResourceCompile Include="My11BasicDialog.rc">
       <Filter>资源文件</Filter>
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="res\My10Dialog.rc2">
+    <None Include="res\My11BasicDialog.rc2">
       <Filter>资源文件</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="res\10_DialogDoc.ico">
+    <Image Include="res\11_BasicDialog.ico">
       <Filter>资源文件</Filter>
     </Image>
-    <Image Include="res\10_Dialog.ico">
+    <Image Include="res\icon1.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="C:\Users\YJ\Desktop\图片资源\icon\ico_a.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="C:\Users\YJ\Desktop\图片资源\icon\ico_b.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="C:\Users\YJ\Desktop\图片资源\icon\ico_c.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="C:\Users\YJ\Desktop\图片资源\icon\ico_d.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\icon\ico_a.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\icon\ico_b.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\icon\ico_c.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\icon\ico_d.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\icon\bitmap1.bmp">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\bmp\appicon.bmp">
       <Filter>资源文件</Filter>
     </Image>
   </ItemGroup>

@@ -6,7 +6,7 @@
 #include "10_Dialog.h"
 
 #include "MainFrm.h"
-
+#include "MyDialog.h"
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
@@ -21,6 +21,7 @@ BEGIN_MESSAGE_MAP(CMainFrame, CFrameWnd)
 	ON_UPDATE_COMMAND_UI_RANGE(ID_VIEW_APPLOOK_WIN_2000, ID_VIEW_APPLOOK_WINDOWS_7, &CMainFrame::OnUpdateApplicationLook)
 	ON_COMMAND(ID_32771, &CMainFrame::OnDialogExec)
 	ON_COMMAND(ID_32772, &CMainFrame::OnDialogShow)
+	ON_COMMAND(ID_32773, &CMainFrame::OnDlgCustom)
 END_MESSAGE_MAP()
 
 static UINT indicators[] =
@@ -172,4 +173,11 @@ void CMainFrame::OnDialogExec()
 void CMainFrame::OnDialogShow()
 {
 	m_dlg.ShowWindow(SW_SHOWNORMAL);
+}
+
+//自定义对话框
+void CMainFrame::OnDlgCustom()
+{
+	MyDialog myDialog;
+	myDialog.DoModal();
 }

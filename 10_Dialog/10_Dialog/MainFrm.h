@@ -44,6 +44,7 @@ public:
 	afx_msg void OnDialogShow();
 
 	CDialog m_dlg;
+	afx_msg void OnDlgCustom();
 };
 
 

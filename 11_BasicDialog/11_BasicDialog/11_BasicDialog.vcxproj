@@ -20,9 +20,9 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{C7DD164C-B0DC-4DC2-81F0-7AE65909B2B6}</ProjectGuid>
+    <ProjectGuid>{C41EC1FE-B807-426E-A7AA-FEFF71709A91}</ProjectGuid>
     <Keyword>MFCProj</Keyword>
-    <RootNamespace>My10Dialog</RootNamespace>
+    <RootNamespace>My11BasicDialog</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -183,21 +183,17 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="10_Dialog.h" />
-    <ClInclude Include="10_DialogDoc.h" />
-    <ClInclude Include="10_DialogView.h" />
-    <ClInclude Include="MainFrm.h" />
-    <ClInclude Include="MyDialog.h" />
+    <ClInclude Include="11_BasicDialog.h" />
+    <ClInclude Include="11_BasicDialogDlg.h" />
+    <ClInclude Include="MyButton.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="10_Dialog.cpp" />
-    <ClCompile Include="10_DialogDoc.cpp" />
-    <ClCompile Include="10_DialogView.cpp" />
-    <ClCompile Include="MainFrm.cpp" />
-    <ClCompile Include="MyDialog.cpp" />
+    <ClCompile Include="11_BasicDialog.cpp" />
+    <ClCompile Include="11_BasicDialogDlg.cpp" />
+    <ClCompile Include="MyButton.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
@@ -206,14 +202,24 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="My10Dialog.rc" />
+    <ResourceCompile Include="My11BasicDialog.rc" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="res\My10Dialog.rc2" />
+    <None Include="res\My11BasicDialog.rc2" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="res\10_Dialog.ico" />
-    <Image Include="res\10_DialogDoc.ico" />
+    <Image Include="C:\Users\YJ\Desktop\图片资源\icon\ico_a.ico" />
+    <Image Include="C:\Users\YJ\Desktop\图片资源\icon\ico_b.ico" />
+    <Image Include="C:\Users\YJ\Desktop\图片资源\icon\ico_c.ico" />
+    <Image Include="C:\Users\YJ\Desktop\图片资源\icon\ico_d.ico" />
+    <Image Include="res\11_BasicDialog.ico" />
+    <Image Include="res\bmp\appicon.bmp" />
+    <Image Include="res\icon1.ico" />
+    <Image Include="res\icon\bitmap1.bmp" />
+    <Image Include="res\icon\ico_a.ico" />
+    <Image Include="res\icon\ico_b.ico" />
+    <Image Include="res\icon\ico_c.ico" />
+    <Image Include="res\icon\ico_d.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
