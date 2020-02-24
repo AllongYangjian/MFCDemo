@@ -35,4 +35,17 @@ public:
 	afx_msg void OnBnClickedButton1();
 private:
 	MyButton m_button;
+public:
+	afx_msg void OnEnChangeEdit1();
+private:
+	CString m_str;
+public:
+	afx_msg void OnBnClickedButton4();
+	afx_msg void OnBnClickedButton5();
+private:
+	CEdit m_etSource;
+	CEdit m_etDest;
+public:
+	afx_msg void OnBnClickedBtnCopy();
+	afx_msg void OnBnClickedBtbClose();
 };

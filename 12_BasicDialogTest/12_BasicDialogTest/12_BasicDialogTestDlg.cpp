@@ -1,20 +1,15 @@
 ﻿
-// 11_BasicDialogDlg.cpp: 实现文件
+// 12_BasicDialogTestDlg.cpp: 实现文件
 //
 
 #include "stdafx.h"
-#include "11_BasicDialog.h"
-#include "11_BasicDialogDlg.h"
+#include "12_BasicDialogTest.h"
+#include "12_BasicDialogTestDlg.h"
 #include "afxdialogex.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
-
-#define HBMP(filepath,width,height) (HBITMAP)LoadImage(AfxGetInstanceHandle(),filepath,\
-IMG_BITMAP,width,height,LR_LOADFROMFILE|LR_CREATEDIBSECTION)
-
-#define HICO(filepath) (HICON)LoadImage(AfxGetInstanceHandle(),filepath,IMAGE_ICON,0,0,LR_LOADFROMFILE|LR_DEFAULTSIZE);
 
 
 // 用于应用程序“关于”菜单项的 CAboutDlg 对话框
@@ -50,41 +45,37 @@ BEGIN_MESSAGE_MAP(CAboutDlg, CDialogEx)
 END_MESSAGE_MAP()
 
 
-// CMy11BasicDialogDlg 对话框
+// CMy12BasicDialogTestDlg 对话框
 
 
 
-CMy11BasicDialogDlg::CMy11BasicDialogDlg(CWnd* pParent /*=nullptr*/)
-	: CDialogEx(IDD_MY11_BASICDIALOG_DIALOG, pParent)
-	, m_str(_T(""))
+CMy12BasicDialogTestDlg::CMy12BasicDialogTestDlg(CWnd* pParent /*=nullptr*/)
+	: CDialogEx(IDD_MY12_BASICDIALOGTEST_DIALOG, pParent)
+	, m_strSource(_T(""))
+	, m_strDest(_T(""))
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
 
-void CMy11BasicDialogDlg::DoDataExchange(CDataExchange* pDX)
+void CMy12BasicDialogTestDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
-	DDX_Control(pDX, IDC_BUTTON2, m_button);
-	DDX_Text(pDX, IDC_EDIT1, m_str);
-	DDX_Control(pDX, IDC_EDIT_SOURCE, m_etSource);
-	DDX_Control(pDX, IDC_EDIT_DESTINATION, m_etDest);
+	DDX_Text(pDX, IDC_EDIT_SRC, m_strSource);
+	DDX_Text(pDX, IDC_EDIT_DEST, m_strDest);
 }
 
-BEGIN_MESSAGE_MAP(CMy11BasicDialogDlg, CDialogEx)
+BEGIN_MESSAGE_MAP(CMy12BasicDialogTestDlg, CDialogEx)
 	ON_WM_SYSCOMMAND()
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
-	ON_BN_CLICKED(IDC_BUTTON1, &CMy11BasicDialogDlg::OnBnClickedButton1)
-	ON_EN_CHANGE(IDC_EDIT1, &CMy11BasicDialogDlg::OnEnChangeEdit1)
-	ON_BN_CLICKED(IDC_BUTTON4, &CMy11BasicDialogDlg::OnBnClickedButton4)
-	ON_BN_CLICKED(IDC_BTN_COPY, &CMy11BasicDialogDlg::OnBnClickedBtnCopy)
-	ON_BN_CLICKED(IDC_BTB_CLOSE, &CMy11BasicDialogDlg::OnBnClickedBtbClose)
+	ON_BN_CLICKED(IDC_BUTTON_COPY, &CMy12BasicDialogTestDlg::OnBnClickedButtonCopy)
+	ON_BN_CLICKED(IDC_BUTTON_CLOSE, &CMy12BasicDialogTestDlg::OnBnClickedButtonClose)
 END_MESSAGE_MAP()
 
 
-// CMy11BasicDialogDlg 消息处理程序
+// CMy12BasicDialogTestDlg 消息处理程序
 
-BOOL CMy11BasicDialogDlg::OnInitDialog()
+BOOL CMy12BasicDialogTestDlg::OnInitDialog()
 {
 	CDialogEx::OnInitDialog();
 
@@ -113,26 +104,12 @@ BOOL CMy11BasicDialogDlg::OnInitDialog()
 	SetIcon(m_hIcon, TRUE);			// 设置大图标
 	SetIcon(m_hIcon, FALSE);		// 设置小图标
 
-	m_button.SetWindowTextW(TEXT("逃跑的按钮"));
-
-	CBitmap bitmap;
-	bitmap.LoadBitmapW(IDB_BITMAP1);
-
-	BITMAP bmp;
-	bitmap.GetBitmap(&bmp);
-
-	m_button.SetBitmap(bitmap);
-
-	m_button.MoveWindow(20, 20, bmp.bmWidth, bmp.bmHeight);
-
-	m_str = TEXT("sb");
-	UpdateData(false);//更新变量
-
+	// TODO: 在此添加额外的初始化代码
 
 	return TRUE;  // 除非将焦点设置到控件，否则返回 TRUE
 }
 
-void CMy11BasicDialogDlg::OnSysCommand(UINT nID, LPARAM lParam)
+void CMy12BasicDialogTestDlg::OnSysCommand(UINT nID, LPARAM lParam)
 {
 	if ((nID & 0xFFF0) == IDM_ABOUTBOX)
 	{
@@ -149,7 +126,7 @@ void CMy11BasicDialogDlg::OnSysCommand(UINT nID, LPARAM lParam)
 //  来绘制该图标。  对于使用文档/视图模型的 MFC 应用程序，
 //  这将由框架自动完成。
 
-void CMy11BasicDialogDlg::OnPaint()
+void CMy12BasicDialogTestDlg::OnPaint()
 {
 	if (IsIconic())
 	{
@@ -176,52 +153,22 @@ void CMy11BasicDialogDlg::OnPaint()
 
 //当用户拖动最小化窗口时系统调用此函数取得光标
 //显示。
-HCURSOR CMy11BasicDialogDlg::OnQueryDragIcon()
+HCURSOR CMy12BasicDialogTestDlg::OnQueryDragIcon()
 {
 	return static_cast<HCURSOR>(m_hIcon);
 }
 
 
 
-void CMy11BasicDialogDlg::OnBnClickedButton1()
-{
-	
-	
-}
-
-
-void CMy11BasicDialogDlg::OnEnChangeEdit1()
-{
-	// TODO:  如果该控件是 RICHEDIT 控件，它将不
-	// 发送此通知，除非重写 CDialogEx::OnInitDialog()
-	// 函数并调用 CRichEditCtrl().SetEventMask()，
-	// 同时将 ENM_CHANGE 标志“或”运算到掩码中。
-
-	// TODO:  在此添加控件通知处理程序代码
-}
-
-
-void CMy11BasicDialogDlg::OnBnClickedButton4()
+void CMy12BasicDialogTestDlg::OnBnClickedButtonCopy()
 {
 	UpdateData(TRUE);
-	MessageBox(m_str);
+	m_strDest = m_strSource;
+	UpdateData(FALSE);
 }
 
 
-
-void CMy11BasicDialogDlg::OnBnClickedBtnCopy()
-{
-	CString str;
-	m_etSource.GetWindowTextW(str);
-
-	if (str.GetLength() > 0)
-	{
-		m_etDest.SetWindowTextW(str);
-	}
-}
-
-
-void CMy11BasicDialogDlg::OnBnClickedBtbClose()
+void CMy12BasicDialogTestDlg::OnBnClickedButtonClose()
 {
 	CDialogEx::OnOK();
 }
