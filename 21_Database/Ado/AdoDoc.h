@@ -1,16 +1,16 @@
 ﻿
-// 21_DatabaseDoc.h: CMy21DatabaseDoc 类的接口
+// AdoDoc.h: CAdoDoc 类的接口
 //
 
 
 #pragma once
 
 
-class CMy21DatabaseDoc : public CDocument
+class CAdoDoc : public CDocument
 {
 protected: // 仅从序列化创建
-	CMy21DatabaseDoc() noexcept;
-	DECLARE_DYNCREATE(CMy21DatabaseDoc)
+	CAdoDoc() noexcept;
+	DECLARE_DYNCREATE(CAdoDoc)
 
 // 特性
 public:
@@ -29,7 +29,7 @@ public:
 
 // 实现
 public:
-	virtual ~CMy21DatabaseDoc();
+	virtual ~CAdoDoc();
 #ifdef _DEBUG
 	virtual void AssertValid() const;
 	virtual void Dump(CDumpContext& dc) const;

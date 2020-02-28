@@ -1,39 +1,37 @@
 ﻿
-// Database.cpp: 定义应用程序的类行为。
+// Ado.cpp: 定义应用程序的类行为。
 //
 
 #include "stdafx.h"
 #include "afxwinappex.h"
 #include "afxdialogex.h"
-#include "Database.h"
+#include "Ado.h"
 #include "MainFrm.h"
 
-#include "DatabaseDoc.h"
-#include "DatabaseView.h"
+#include "AdoDoc.h"
+#include "AdoView.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
 
 
-// CDatabaseApp
+// CAdoApp
 
-BEGIN_MESSAGE_MAP(CDatabaseApp, CWinAppEx)
-	ON_COMMAND(ID_APP_ABOUT, &CDatabaseApp::OnAppAbout)
+BEGIN_MESSAGE_MAP(CAdoApp, CWinApp)
+	ON_COMMAND(ID_APP_ABOUT, &CAdoApp::OnAppAbout)
 	// 基于文件的标准文档命令
-	ON_COMMAND(ID_FILE_NEW, &CWinAppEx::OnFileNew)
-	ON_COMMAND(ID_FILE_OPEN, &CWinAppEx::OnFileOpen)
+	ON_COMMAND(ID_FILE_NEW, &CWinApp::OnFileNew)
+	ON_COMMAND(ID_FILE_OPEN, &CWinApp::OnFileOpen)
 	// 标准打印设置命令
-	ON_COMMAND(ID_FILE_PRINT_SETUP, &CWinAppEx::OnFilePrintSetup)
+	ON_COMMAND(ID_FILE_PRINT_SETUP, &CWinApp::OnFilePrintSetup)
 END_MESSAGE_MAP()
 
 
-// CDatabaseApp 构造
+// CAdoApp 构造
 
-CDatabaseApp::CDatabaseApp() noexcept
+CAdoApp::CAdoApp() noexcept
 {
-	m_bHiColorIcons = TRUE;
-
 	// 支持重新启动管理器
 	m_dwRestartManagerSupportFlags = AFX_RESTART_MANAGER_SUPPORT_ALL_ASPECTS;
 #ifdef _MANAGED
@@ -45,20 +43,20 @@ CDatabaseApp::CDatabaseApp() noexcept
 
 	// TODO: 将以下应用程序 ID 字符串替换为唯一的 ID 字符串；建议的字符串格式
 	//为 CompanyName.ProductName.SubProduct.VersionInformation
-	SetAppID(_T("Database.AppID.NoVersion"));
+	SetAppID(_T("Ado.AppID.NoVersion"));
 
 	// TODO: 在此处添加构造代码，
 	// 将所有重要的初始化放置在 InitInstance 中
 }
 
-// 唯一的 CDatabaseApp 对象
+// 唯一的 CAdoApp 对象
 
-CDatabaseApp theApp;
+CAdoApp theApp;
 
 
-// CDatabaseApp 初始化
+// CAdoApp 初始化
 
-BOOL CDatabaseApp::InitInstance()
+BOOL CAdoApp::InitInstance()
 {
 	// 如果一个运行在 Windows XP 上的应用程序清单指定要
 	// 使用 ComCtl32.dll 版本 6 或更高版本来启用可视化方式，
@@ -70,8 +68,7 @@ BOOL CDatabaseApp::InitInstance()
 	InitCtrls.dwICC = ICC_WIN95_CLASSES;
 	InitCommonControlsEx(&InitCtrls);
 
-	CWinAppEx::InitInstance();
-
+	CWinApp::InitInstance();
 
 	// 初始化 OLE 库
 	if (!AfxOleInit())
@@ -79,6 +76,7 @@ BOOL CDatabaseApp::InitInstance()
 		AfxMessageBox(IDP_OLE_INIT_FAILED);
 		return FALSE;
 	}
+	/*::CoInitialize(NULL);*/
 
 	AfxEnableControlContainer();
 
@@ -98,24 +96,14 @@ BOOL CDatabaseApp::InitInstance()
 	LoadStdProfileSettings(4);  // 加载标准 INI 文件选项(包括 MRU)
 
 
-	InitContextMenuManager();
-
-	InitKeyboardManager();
-
-	InitTooltipManager();
-	CMFCToolTipInfo ttParams;
-	ttParams.m_bVislManagerTheme = TRUE;
-	theApp.GetTooltipManager()->SetTooltipParams(AFX_TOOLTIP_TYPE_ALL,
-		RUNTIME_CLASS(CMFCToolTipCtrl), &ttParams);
-
 	// 注册应用程序的文档模板。  文档模板
 	// 将用作文档、框架窗口和视图之间的连接
 	CSingleDocTemplate* pDocTemplate;
 	pDocTemplate = new CSingleDocTemplate(
 		IDR_MAINFRAME,
-		RUNTIME_CLASS(CDatabaseDoc),
+		RUNTIME_CLASS(CAdoDoc),
 		RUNTIME_CLASS(CMainFrame),       // 主 SDI 框架窗口
-		RUNTIME_CLASS(CDatabaseView));
+		RUNTIME_CLASS(CAdoView));
 	if (!pDocTemplate)
 		return FALSE;
 	AddDocTemplate(pDocTemplate);
@@ -138,15 +126,15 @@ BOOL CDatabaseApp::InitInstance()
 	return TRUE;
 }
 
-int CDatabaseApp::ExitInstance()
+int CAdoApp::ExitInstance()
 {
-	//TODO: 处理可能已添加的附加资源
-	AfxOleTerm(FALSE);
+	//::CoUninitialize();
 
-	return CWinAppEx::ExitInstance();
+	AfxOleTerm(FALSE);
+	return CWinApp::ExitInstance();
 }
 
-// CDatabaseApp 消息处理程序
+// CAdoApp 消息处理程序
 
 
 // 用于应用程序“关于”菜单项的 CAboutDlg 对话框
@@ -182,32 +170,13 @@ BEGIN_MESSAGE_MAP(CAboutDlg, CDialogEx)
 END_MESSAGE_MAP()
 
 // 用于运行对话框的应用程序命令
-void CDatabaseApp::OnAppAbout()
+void CAdoApp::OnAppAbout()
 {
 	CAboutDlg aboutDlg;
 	aboutDlg.DoModal();
 }
 
-// CDatabaseApp 自定义加载/保存方法
-
-void CDatabaseApp::PreLoadState()
-{
-	BOOL bNameValid;
-	CString strName;
-	bNameValid = strName.LoadString(IDS_EDIT_MENU);
-	ASSERT(bNameValid);
-	GetContextMenuManager()->AddMenu(strName, IDR_POPUP_EDIT);
-}
-
-void CDatabaseApp::LoadCustomState()
-{
-}
-
-void CDatabaseApp::SaveCustomState()
-{
-}
-
-// CDatabaseApp 消息处理程序
+// CAdoApp 消息处理程序
 
 
 

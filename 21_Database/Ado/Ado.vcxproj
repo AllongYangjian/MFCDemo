@@ -20,9 +20,9 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{03341BBE-706D-4847-AF13-8CF94E5E693A}</ProjectGuid>
+    <ProjectGuid>{3F2A1854-FCAF-4960-8774-56993310C08D}</ProjectGuid>
     <Keyword>MFCProj</Keyword>
-    <RootNamespace>Database</RootNamespace>
+    <RootNamespace>Ado</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -93,6 +93,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <CompileAsWinRT>false</CompileAsWinRT>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -183,18 +184,18 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Database.h" />
-    <ClInclude Include="DatabaseDoc.h" />
-    <ClInclude Include="DatabaseView.h" />
+    <ClInclude Include="Ado.h" />
+    <ClInclude Include="AdoDoc.h" />
+    <ClInclude Include="AdoView.h" />
     <ClInclude Include="MainFrm.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Database.cpp" />
-    <ClCompile Include="DatabaseDoc.cpp" />
-    <ClCompile Include="DatabaseView.cpp" />
+    <ClCompile Include="Ado.cpp" />
+    <ClCompile Include="AdoDoc.cpp" />
+    <ClCompile Include="AdoView.cpp" />
     <ClCompile Include="MainFrm.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -204,17 +205,15 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="Database.rc" />
+    <ResourceCompile Include="Ado.rc" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="res\Database.ico" />
-    <Image Include="res\DatabaseDoc.ico" />
+    <None Include="res\Ado.rc2" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\Ado.ico" />
+    <Image Include="res\AdoDoc.ico" />
     <Image Include="res\Toolbar.bmp" />
-    <Image Include="res\Toolbar256.bmp" />
-    <Image Include="res\userimages.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="res\Database.rc2" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

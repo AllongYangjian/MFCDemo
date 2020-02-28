@@ -1,21 +1,12 @@
 ﻿//{{NO_DEPENDENCIES}}
 // 生成的 Microsoft Visual C++ 包含文件。
-// 由 My21Database.rc 使用
+// 由 Ado.rc 使用
 //
 #define IDD_ABOUTBOX				100
+#define IDD_ADO_FORM			101
 #define IDP_OLE_INIT_FAILED			100
-#define IDR_POPUP_EDIT				119
-#define ID_STATUSBAR_PANE1			120
-#define ID_STATUSBAR_PANE2			121
-#define IDS_STATUS_PANE1			122
-#define IDS_STATUS_PANE2			123
-#define IDS_TOOLBAR_STANDARD		124
-#define IDS_TOOLBAR_CUSTOMIZE		125
-#define ID_VIEW_CUSTOMIZE			126
 #define IDR_MAINFRAME				128
-#define IDR_MAINFRAME_256			129
-#define IDR_My21DatabaseTYPE				130
-#define IDS_EDIT_MENU				306
+#define IDR_AdoTYPE				130
 
 // 新对象的下一组默认值
 //

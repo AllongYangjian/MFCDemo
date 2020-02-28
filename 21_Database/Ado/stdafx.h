@@ -5,6 +5,7 @@
 
 #pragma once
 
+
 #ifndef VC_EXTRALEAN
 #define VC_EXTRALEAN            // 从 Windows 头中排除极少使用的资料
 #endif
@@ -22,6 +23,7 @@
 
 #include <afxdisp.h>        // MFC 自动化类
 
+#import "C:\Program Files\Common Files\System\ado\msado15.dll" no_namespace rename("EOF","adoEOF")
 
 
 #ifndef _AFX_NO_OLE_SUPPORT

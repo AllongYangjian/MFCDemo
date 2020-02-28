@@ -1,24 +1,24 @@
 ﻿
-// DatabaseView.h: CDatabaseView 类的接口
+// AdoView.h: CAdoView 类的接口
 //
 
 #pragma once
 
 
-class CDatabaseView : public CFormView
+class CAdoView : public CFormView
 {
 protected: // 仅从序列化创建
-	CDatabaseView() noexcept;
-	DECLARE_DYNCREATE(CDatabaseView)
+	CAdoView() noexcept;
+	DECLARE_DYNCREATE(CAdoView)
 
 public:
 #ifdef AFX_DESIGN_TIME
-	enum{ IDD = IDD_DATABASE_FORM };
+	enum{ IDD = IDD_ADO_FORM };
 #endif
 
 // 特性
 public:
-	CDatabaseDoc* GetDocument() const;
+	CAdoDoc* GetDocument() const;
 
 // 操作
 public:
@@ -36,7 +36,7 @@ protected:
 
 // 实现
 public:
-	virtual ~CDatabaseView();
+	virtual ~CAdoView();
 #ifdef _DEBUG
 	virtual void AssertValid() const;
 	virtual void Dump(CDumpContext& dc) const;
@@ -46,14 +46,14 @@ protected:
 
 // 生成的消息映射函数
 protected:
-	afx_msg void OnFilePrintPreview();
-	afx_msg void OnRButtonUp(UINT nFlags, CPoint point);
-	afx_msg void OnContextMenu(CWnd* pWnd, CPoint point);
 	DECLARE_MESSAGE_MAP()
+public:
+	_ConnectionPtr m_connection;
+	void ConnectSqlServer();
 };
 
-#ifndef _DEBUG  // DatabaseView.cpp 中的调试版本
-inline CDatabaseDoc* CDatabaseView::GetDocument() const
-   { return reinterpret_cast<CDatabaseDoc*>(m_pDocument); }
+#ifndef _DEBUG  // AdoView.cpp 中的调试版本
+inline CAdoDoc* CAdoView::GetDocument() const
+   { return reinterpret_cast<CAdoDoc*>(m_pDocument); }
 #endif
 

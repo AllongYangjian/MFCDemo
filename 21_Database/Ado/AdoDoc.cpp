@@ -1,15 +1,15 @@
 ﻿
-// 21_DatabaseDoc.cpp: CMy21DatabaseDoc 类的实现
+// AdoDoc.cpp: CAdoDoc 类的实现
 //
 
 #include "stdafx.h"
 // SHARED_HANDLERS 可以在实现预览、缩略图和搜索筛选器句柄的
 // ATL 项目中进行定义，并允许与该项目共享文档代码。
 #ifndef SHARED_HANDLERS
-#include "21_Database.h"
+#include "Ado.h"
 #endif
 
-#include "21_DatabaseDoc.h"
+#include "AdoDoc.h"
 
 #include <propkey.h>
 
@@ -17,27 +17,27 @@
 #define new DEBUG_NEW
 #endif
 
-// CMy21DatabaseDoc
+// CAdoDoc
 
-IMPLEMENT_DYNCREATE(CMy21DatabaseDoc, CDocument)
+IMPLEMENT_DYNCREATE(CAdoDoc, CDocument)
 
-BEGIN_MESSAGE_MAP(CMy21DatabaseDoc, CDocument)
+BEGIN_MESSAGE_MAP(CAdoDoc, CDocument)
 END_MESSAGE_MAP()
 
 
-// CMy21DatabaseDoc 构造/析构
+// CAdoDoc 构造/析构
 
-CMy21DatabaseDoc::CMy21DatabaseDoc() noexcept
+CAdoDoc::CAdoDoc() noexcept
 {
 	// TODO: 在此添加一次性构造代码
 
 }
 
-CMy21DatabaseDoc::~CMy21DatabaseDoc()
+CAdoDoc::~CAdoDoc()
 {
 }
 
-BOOL CMy21DatabaseDoc::OnNewDocument()
+BOOL CAdoDoc::OnNewDocument()
 {
 	if (!CDocument::OnNewDocument())
 		return FALSE;
@@ -51,9 +51,9 @@ BOOL CMy21DatabaseDoc::OnNewDocument()
 
 
 
-// CMy21DatabaseDoc 序列化
+// CAdoDoc 序列化
 
-void CMy21DatabaseDoc::Serialize(CArchive& ar)
+void CAdoDoc::Serialize(CArchive& ar)
 {
 	if (ar.IsStoring())
 	{
@@ -68,7 +68,7 @@ void CMy21DatabaseDoc::Serialize(CArchive& ar)
 #ifdef SHARED_HANDLERS
 
 // 缩略图的支持
-void CMy21DatabaseDoc::OnDrawThumbnail(CDC& dc, LPRECT lprcBounds)
+void CAdoDoc::OnDrawThumbnail(CDC& dc, LPRECT lprcBounds)
 {
 	// 修改此代码以绘制文档数据
 	dc.FillSolidRect(lprcBounds, RGB(255, 255, 255));
@@ -89,7 +89,7 @@ void CMy21DatabaseDoc::OnDrawThumbnail(CDC& dc, LPRECT lprcBounds)
 }
 
 // 搜索处理程序的支持
-void CMy21DatabaseDoc::InitializeSearchContent()
+void CAdoDoc::InitializeSearchContent()
 {
 	CString strSearchContent;
 	// 从文档数据设置搜索内容。
@@ -99,7 +99,7 @@ void CMy21DatabaseDoc::InitializeSearchContent()
 	SetSearchContent(strSearchContent);
 }
 
-void CMy21DatabaseDoc::SetSearchContent(const CString& value)
+void CAdoDoc::SetSearchContent(const CString& value)
 {
 	if (value.IsEmpty())
 	{
@@ -119,19 +119,19 @@ void CMy21DatabaseDoc::SetSearchContent(const CString& value)
 
 #endif // SHARED_HANDLERS
 
-// CMy21DatabaseDoc 诊断
+// CAdoDoc 诊断
 
 #ifdef _DEBUG
-void CMy21DatabaseDoc::AssertValid() const
+void CAdoDoc::AssertValid() const
 {
 	CDocument::AssertValid();
 }
 
-void CMy21DatabaseDoc::Dump(CDumpContext& dc) const
+void CAdoDoc::Dump(CDumpContext& dc) const
 {
 	CDocument::Dump(dc);
 }
 #endif //_DEBUG
 
 
-// CMy21DatabaseDoc 命令
+// CAdoDoc 命令

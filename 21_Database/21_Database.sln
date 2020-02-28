@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.902
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "21_Database", "21_Database\21_Database.vcxproj", "{9DAB8188-E46F-4918-AB40-64710CBC86D2}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Ado", "Ado\Ado.vcxproj", "{3F2A1854-FCAF-4960-8774-56993310C08D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,14 +13,14 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{9DAB8188-E46F-4918-AB40-64710CBC86D2}.Debug|x64.ActiveCfg = Debug|x64
-		{9DAB8188-E46F-4918-AB40-64710CBC86D2}.Debug|x64.Build.0 = Debug|x64
-		{9DAB8188-E46F-4918-AB40-64710CBC86D2}.Debug|x86.ActiveCfg = Debug|x64
-		{9DAB8188-E46F-4918-AB40-64710CBC86D2}.Debug|x86.Build.0 = Debug|x64
-		{9DAB8188-E46F-4918-AB40-64710CBC86D2}.Release|x64.ActiveCfg = Release|x64
-		{9DAB8188-E46F-4918-AB40-64710CBC86D2}.Release|x64.Build.0 = Release|x64
-		{9DAB8188-E46F-4918-AB40-64710CBC86D2}.Release|x86.ActiveCfg = Release|Win32
-		{9DAB8188-E46F-4918-AB40-64710CBC86D2}.Release|x86.Build.0 = Release|Win32
+		{3F2A1854-FCAF-4960-8774-56993310C08D}.Debug|x64.ActiveCfg = Debug|x64
+		{3F2A1854-FCAF-4960-8774-56993310C08D}.Debug|x64.Build.0 = Debug|x64
+		{3F2A1854-FCAF-4960-8774-56993310C08D}.Debug|x86.ActiveCfg = Debug|Win32
+		{3F2A1854-FCAF-4960-8774-56993310C08D}.Debug|x86.Build.0 = Debug|Win32
+		{3F2A1854-FCAF-4960-8774-56993310C08D}.Release|x64.ActiveCfg = Release|x64
+		{3F2A1854-FCAF-4960-8774-56993310C08D}.Release|x64.Build.0 = Release|x64
+		{3F2A1854-FCAF-4960-8774-56993310C08D}.Release|x86.ActiveCfg = Release|Win32
+		{3F2A1854-FCAF-4960-8774-56993310C08D}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
