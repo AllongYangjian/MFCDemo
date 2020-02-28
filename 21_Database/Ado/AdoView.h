@@ -3,7 +3,8 @@
 //
 
 #pragma once
-
+#include "UserAddDialog.h"
+#include "AdoDoc.h"
 
 class CAdoView : public CFormView
 {
@@ -50,6 +51,14 @@ protected:
 public:
 	_ConnectionPtr m_connection;
 	void ConnectSqlServer();
+	afx_msg void OnBnClickedButtonAdd();
+private:
+	UserAddDialog m_userDlg;
+public:
+	afx_msg void OnBnClickedButtonQuery();
+private:
+	CListCtrl m_stuList;
+//	virtual void OnActivateView(BOOL bActivate, CView* pActivateView, CView* pDeactiveView);
 };
 
 #ifndef _DEBUG  // AdoView.cpp 中的调试版本

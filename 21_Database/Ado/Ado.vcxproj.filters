@@ -13,6 +13,15 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="View">
+      <UniqueIdentifier>{49a061a4-8242-451d-9ad8-8ee3016084f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Entity">
+      <UniqueIdentifier>{cbda63f8-cea2-409b-a985-bee208877b10}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Dao">
+      <UniqueIdentifier>{deb9d296-92dd-440d-aaa5-c7702c2b3169}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ado.h">
@@ -36,6 +45,12 @@
     <ClInclude Include="Resource.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="UserAddDialog.h">
+      <Filter>View</Filter>
+    </ClInclude>
+    <ClInclude Include="Student.h">
+      <Filter>Entity</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Ado.cpp">
@@ -52,6 +67,12 @@
     </ClCompile>
     <ClCompile Include="AdoView.cpp">
       <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="UserAddDialog.cpp">
+      <Filter>View</Filter>
+    </ClCompile>
+    <ClCompile Include="Student.cpp">
+      <Filter>Entity</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
