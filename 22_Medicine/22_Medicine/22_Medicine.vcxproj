@@ -96,6 +96,7 @@
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
+      <AdditionalDependencies>odbc32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>
@@ -118,6 +119,7 @@
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
+      <AdditionalDependencies>odbc32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>
@@ -144,6 +146,7 @@
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>odbc32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>
@@ -170,6 +173,7 @@
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>odbc32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>
@@ -186,26 +190,34 @@
     <ClInclude Include="22_Medicine.h" />
     <ClInclude Include="22_MedicineDoc.h" />
     <ClInclude Include="22_MedicineView.h" />
+    <ClInclude Include="CLoginDlg.h" />
     <ClInclude Include="CMedicListView.h" />
+    <ClInclude Include="CUser.h" />
     <ClInclude Include="CUserTreeView.h" />
     <ClInclude Include="MainFrm.h" />
+    <ClInclude Include="MedicSet.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="UserSet.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="22_Medicine.cpp" />
     <ClCompile Include="22_MedicineDoc.cpp" />
     <ClCompile Include="22_MedicineView.cpp" />
+    <ClCompile Include="CLoginDlg.cpp" />
     <ClCompile Include="CMedicListView.cpp" />
+    <ClCompile Include="CUser.cpp" />
     <ClCompile Include="CUserTreeView.cpp" />
     <ClCompile Include="MainFrm.cpp" />
+    <ClCompile Include="MedicSet.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="UserSet.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="My22Medicine.rc" />
@@ -216,6 +228,10 @@
   <ItemGroup>
     <Image Include="res\22_Medicine.ico" />
     <Image Include="res\22_MedicineDoc.ico" />
+    <Image Include="res\icon\ico_a.ico" />
+    <Image Include="res\icon\ico_b.ico" />
+    <Image Include="res\icon\ico_c.ico" />
+    <Image Include="res\icon\ico_d.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,6 +1,5 @@
 ﻿#pragma once
 
-
 // CUserTreeView 视图
 
 class CUserTreeView : public CTreeView
@@ -21,6 +20,8 @@ public:
 
 protected:
 	DECLARE_MESSAGE_MAP()
+public:
+	virtual void OnInitialUpdate();
+	//只有作为成员变量数据才会出来
+	CImageList imgList;
 };
-
-

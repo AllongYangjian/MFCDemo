@@ -4,16 +4,36 @@
 
 
 #pragma once
-
+#include "MedicSet.h"
+#include "UserSet.h"
+#include "CUser.h"
 
 class CMy22MedicineDoc : public CDocument
 {
+private:
+	CMedicSet m_set;
+	CUserSet m_userSet;
+	CUser m_user;
 protected: // 仅从序列化创建
 	CMy22MedicineDoc() noexcept;
 	DECLARE_DYNCREATE(CMy22MedicineDoc)
 
 // 特性
 public:
+	CMedicSet* GetMedicSet()
+	{
+		return &m_set;
+	}
+	
+	CUserSet* GetUserSet()
+	{
+		return &m_userSet;
+	}
+
+	CUser* GetUser()
+	{
+		return &m_user;
+	}
 
 // 操作
 public:

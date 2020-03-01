@@ -42,6 +42,18 @@
     <ClInclude Include="CMedicListView.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="MedicSet.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="UserSet.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CLoginDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CUser.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="22_Medicine.cpp">
@@ -65,6 +77,18 @@
     <ClCompile Include="CMedicListView.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="MedicSet.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="UserSet.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CLoginDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CUser.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="My22Medicine.rc">
@@ -81,6 +105,18 @@
       <Filter>资源文件</Filter>
     </Image>
     <Image Include="res\22_Medicine.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\icon\ico_a.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\icon\ico_b.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\icon\ico_c.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\icon\ico_d.ico">
       <Filter>资源文件</Filter>
     </Image>
   </ItemGroup>
