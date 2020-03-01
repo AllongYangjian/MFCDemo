@@ -54,6 +54,8 @@ public:
 	afx_msg void OnByType();
 	afx_msg void OnById();
 	afx_msg void OnByName();
+	afx_msg void OnSearchAll();
+	afx_msg void OnSearchZero();
 };
 
 

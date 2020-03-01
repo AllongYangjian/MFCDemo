@@ -81,7 +81,7 @@ void CMedicSearch::SetListCtrl(CListCtrl * ctrl)
 //	return 0;
 //}
 
-int CMedicSearch::SearchMedic(CString sql)
+int CMedicSearch::SearchMedic(CString sql,BOOL expire)
 {
 	if(m_set == NULL || m_listCtrl == NULL)
 	{
@@ -106,6 +106,9 @@ int CMedicSearch::SearchMedic(CString sql)
 		CTime time = m_set->m_produceDate;
 		str = time.Format(TEXT("%Y-%m-%d"));
 		m_listCtrl->SetItemText(x, j++, str);
+
+		//Ìí¼ÓÊ±¼äÅÐ¶Ï
+		
 
 		m_listCtrl->SetItemText(x, j++, m_set->m_producePlace);
 

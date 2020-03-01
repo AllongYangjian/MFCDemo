@@ -11,6 +11,7 @@
 #include "CMedicTypeDlg.h"
 #include "CMedicIDDlg.h"
 #include "CMedicNameDlg.h"
+#include "MedicSearch.h"
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
@@ -31,6 +32,8 @@ BEGIN_MESSAGE_MAP(CMainFrame, CFrameWnd)
 	ON_COMMAND(ID_BY_TYPE, &CMainFrame::OnByType)
 	ON_COMMAND(ID_BY_ID, &CMainFrame::OnById)
 	ON_COMMAND(ID_BY_NAME, &CMainFrame::OnByName)
+	ON_COMMAND(ID_SEARCH_ALL, &CMainFrame::OnSearchAll)
+	ON_COMMAND(ID_SEARCH_ZERO, &CMainFrame::OnSearchZero)
 END_MESSAGE_MAP()
 
 static UINT indicators[] =
@@ -187,4 +190,23 @@ void CMainFrame::OnByName()
 {
 	CMedicNameDlg dlg;
 	dlg.DoModal();
+}
+
+
+void CMainFrame::OnSearchAll()
+{
+	CMy22MedicineDoc* pDoc = (CMy22MedicineDoc*)GetActiveDocument();
+	CMedicSearch *pSearch = pDoc->GetMedicSearch();
+	pSearch->SearchMedic();
+
+}
+
+
+void CMainFrame::OnSearchZero()
+{
+	CMy22MedicineDoc* pDoc = (CMy22MedicineDoc*)GetActiveDocument();
+	CMedicSearch *pSearch = pDoc->GetMedicSearch();
+	CString sql;
+	sql.Format(TEXT("number =%d"), 0);
+	pSearch->SearchMedic(sql);
 }
