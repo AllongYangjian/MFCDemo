@@ -18,7 +18,7 @@ CUserSet::CUserSet(CDatabase* pdb)
 	m_name = "";
 	m_classification = "";
 	m_nFields = 4;
-	m_nDefaultType = snapshot;
+	m_nDefaultType = dynaset;
 }
 //#error 安全问题: 连接字符串可能包含密码。
 // 此连接字符串中可能包含明文密码和/或其他重要

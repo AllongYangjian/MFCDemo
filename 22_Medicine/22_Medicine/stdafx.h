@@ -36,6 +36,7 @@
 #include <afxcview.h>
 #include <afxdb.h>
 #include <afxcontrolbars.h>
+#include <afxcontrolbars.h>
 
 
 

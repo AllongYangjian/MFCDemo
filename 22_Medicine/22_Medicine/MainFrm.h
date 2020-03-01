@@ -5,6 +5,7 @@
 #pragma once
 #include "CUserTreeView.h"
 #include "CMedicListView.h"
+#include "22_MedicineDoc.h"
 
 class CMainFrame : public CFrameWnd
 {
@@ -12,10 +13,12 @@ class CMainFrame : public CFrameWnd
 protected: // 仅从序列化创建
 	CMainFrame() noexcept;
 	DECLARE_DYNCREATE(CMainFrame)
-
+private:
+	//CMy22MedicineDoc *pDoc;//不能作为成员变量
 // 特性
 public:
-
+	//CMy22MedicineDoc* GetDocument();
+	BOOL CheckUserPermission();
 // 操作
 public:
 
@@ -40,6 +43,14 @@ protected:
 	DECLARE_MESSAGE_MAP()
 	CSplitterWnd m_sWnd;//拆分窗口对象
 	virtual BOOL OnCreateClient(LPCREATESTRUCT lpcs, CCreateContext* pContext);
+public:
+	afx_msg void OnUpdateAddUser(CCmdUI *pCmdUI);
+	afx_msg void OnChangePwd();
+	afx_msg void OnAddUser();
+	afx_msg void OnUpdateDeleteUser(CCmdUI *pCmdUI);
+	afx_msg void OnUpdateSearchUser(CCmdUI *pCmdUI);
+	afx_msg void OnDeleteUser();
+	afx_msg void OnSearchUser();
 };
 
 

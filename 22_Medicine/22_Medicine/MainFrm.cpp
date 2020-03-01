@@ -6,7 +6,7 @@
 #include "22_Medicine.h"
 
 #include "MainFrm.h"
-
+#include "CChangePwdDlg.h"
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
@@ -17,6 +17,13 @@ IMPLEMENT_DYNCREATE(CMainFrame, CFrameWnd)
 
 BEGIN_MESSAGE_MAP(CMainFrame, CFrameWnd)
 	ON_WM_CREATE()
+	ON_UPDATE_COMMAND_UI(ID_ADD_USER, &CMainFrame::OnUpdateAddUser)
+	ON_COMMAND(ID_CHANGE_PWD, &CMainFrame::OnChangePwd)
+	ON_COMMAND(ID_ADD_USER, &CMainFrame::OnAddUser)
+	ON_UPDATE_COMMAND_UI(ID_DELETE_USER, &CMainFrame::OnUpdateDeleteUser)
+	ON_UPDATE_COMMAND_UI(ID_SEARCH_USER, &CMainFrame::OnUpdateSearchUser)
+	ON_COMMAND(ID_DELETE_USER, &CMainFrame::OnDeleteUser)
+	ON_COMMAND(ID_SEARCH_USER, &CMainFrame::OnSearchUser)
 END_MESSAGE_MAP()
 
 static UINT indicators[] =
@@ -49,6 +56,8 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 		return -1;      // 未能创建
 	}
 	m_wndStatusBar.SetIndicators(indicators, sizeof(indicators)/sizeof(UINT));
+
+	//pDoc = (CMy22MedicineDoc*)GetActiveDocument();
 
 	return 0;
 }
@@ -90,4 +99,63 @@ BOOL CMainFrame::OnCreateClient(LPCREATESTRUCT lpcs, CCreateContext* pContext)
 	m_sWnd.CreateView(0, 0, RUNTIME_CLASS(CUserTreeView), CSize(230, 600), pContext);
 	m_sWnd.CreateView(0, 1, RUNTIME_CLASS(CMedicListView), CSize(720, 600), pContext);
 	return TRUE;
+}
+
+//添加用户菜单更新事件
+void CMainFrame::OnUpdateAddUser(CCmdUI *pCmdUI)
+{
+	pCmdUI->Enable(CheckUserPermission());
+}
+
+//修改用户密码
+void CMainFrame::OnChangePwd()
+{
+	CChangePwdDlg dlg;
+	dlg.DoModal();
+}
+
+//添加用户
+void CMainFrame::OnAddUser()
+{
+	// TODO: 在此添加命令处理程序代码
+}
+
+
+void CMainFrame::OnUpdateDeleteUser(CCmdUI *pCmdUI)
+{
+	pCmdUI->Enable(CheckUserPermission());
+}
+
+
+void CMainFrame::OnUpdateSearchUser(CCmdUI *pCmdUI)
+{
+	pCmdUI->Enable(CheckUserPermission());
+}
+
+BOOL CMainFrame::CheckUserPermission()
+{
+	CMy22MedicineDoc* pDoc = (CMy22MedicineDoc*)GetActiveDocument();
+
+	CUser *currentUser = pDoc->GetUser();
+
+	if (currentUser->GetClassification() == TEXT("管理员"))
+	{
+		return TRUE;
+	}
+	else
+	{
+		return FALSE;
+	}
+}
+
+
+void CMainFrame::OnDeleteUser()
+{
+	// TODO: 在此添加命令处理程序代码
+}
+
+
+void CMainFrame::OnSearchUser()
+{
+	// TODO: 在此添加命令处理程序代码
 }

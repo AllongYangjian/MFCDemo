@@ -25,6 +25,8 @@ public:
 	void SetUserSet(CUserSet* pSet);
 
 	int Login();
+
+	int ChangePwd(CString newPwd);
 private:
 	CStringW	m_account;
 	CStringW	m_password;

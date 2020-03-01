@@ -54,6 +54,9 @@
     <ClInclude Include="CUser.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="CChangePwdDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="22_Medicine.cpp">
@@ -87,6 +90,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="CUser.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CChangePwdDlg.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

@@ -45,3 +45,40 @@ int CUser::Login()
 	}
 	return 0;
 }
+
+int CUser::ChangePwd(CString newPwd)
+{
+	if (m_userSet == NULL)
+	{
+		return -1;
+	}
+
+
+	CString sql;
+	sql.Format(TEXT("account = '%s' and password = '%s' and classification = '%s'"), m_account, m_password, m_classification);
+	m_userSet->m_strFilter = sql;
+
+	m_userSet->Requery();
+
+	if (m_userSet->GetRecordCount() == 0)
+	{
+		return -2;
+	}
+
+	m_userSet->Edit();
+	m_userSet->m_password = newPwd;
+	if (m_userSet->CanUpdate())
+	{
+		if (m_userSet->Update())
+		{
+			m_password = newPwd;
+			return 0;
+		}
+		else
+		{
+			return -3;
+		}
+	}
+	
+	return -4;
+}
