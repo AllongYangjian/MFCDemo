@@ -87,11 +87,13 @@ int CUser::DeleteUser(CString user)
 {
 	if (m_userSet == NULL)
 	{
+		AfxMessageBox(_T("未设置数据线连接"));
 		return -1;
 	}
 
 	if (m_account == user)
 	{
+		AfxMessageBox(_T("删除用户不能是单前账户"));
 		return -2;
 	}
 
@@ -103,6 +105,7 @@ int CUser::DeleteUser(CString user)
 
 	if (m_userSet->GetRecordCount() == 0)
 	{
+		AfxMessageBox(_T("删除的用户不存在"));
 		return -3;
 	}
 

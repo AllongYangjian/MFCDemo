@@ -60,6 +60,18 @@
     <ClInclude Include="CDeleteDlg.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="CMedicTypeDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="MedicSearch.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CMedicIDDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CMedicNameDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="22_Medicine.cpp">
@@ -99,6 +111,18 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="CDeleteDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CMedicTypeDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="MedicSearch.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CMedicIDDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CMedicNameDlg.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

@@ -51,6 +51,9 @@ public:
 	afx_msg void OnUpdateSearchUser(CCmdUI *pCmdUI);
 	afx_msg void OnDeleteUser();
 	afx_msg void OnSearchUser();
+	afx_msg void OnByType();
+	afx_msg void OnById();
+	afx_msg void OnByName();
 };
 
 

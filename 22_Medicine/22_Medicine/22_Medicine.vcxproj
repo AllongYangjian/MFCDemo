@@ -193,10 +193,14 @@
     <ClInclude Include="CChangePwdDlg.h" />
     <ClInclude Include="CDeleteDlg.h" />
     <ClInclude Include="CLoginDlg.h" />
+    <ClInclude Include="CMedicIDDlg.h" />
     <ClInclude Include="CMedicListView.h" />
+    <ClInclude Include="CMedicNameDlg.h" />
+    <ClInclude Include="CMedicTypeDlg.h" />
     <ClInclude Include="CUser.h" />
     <ClInclude Include="CUserTreeView.h" />
     <ClInclude Include="MainFrm.h" />
+    <ClInclude Include="MedicSearch.h" />
     <ClInclude Include="MedicSet.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />
@@ -210,10 +214,14 @@
     <ClCompile Include="CChangePwdDlg.cpp" />
     <ClCompile Include="CDeleteDlg.cpp" />
     <ClCompile Include="CLoginDlg.cpp" />
+    <ClCompile Include="CMedicIDDlg.cpp" />
     <ClCompile Include="CMedicListView.cpp" />
+    <ClCompile Include="CMedicNameDlg.cpp" />
+    <ClCompile Include="CMedicTypeDlg.cpp" />
     <ClCompile Include="CUser.cpp" />
     <ClCompile Include="CUserTreeView.cpp" />
     <ClCompile Include="MainFrm.cpp" />
+    <ClCompile Include="MedicSearch.cpp" />
     <ClCompile Include="MedicSet.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

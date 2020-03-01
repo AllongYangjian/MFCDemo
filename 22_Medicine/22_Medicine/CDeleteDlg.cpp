@@ -7,6 +7,7 @@
 #include "afxdialogex.h"
 #include"MainFrm.h"
 #include "22_MedicineDoc.h"
+#include "CUserTreeView.h"
 // CDeleteDlg 对话框
 
 IMPLEMENT_DYNAMIC(CDeleteDlg, CDialogEx)
@@ -176,26 +177,74 @@ void CDeleteDlg::OnBnClickedButtonDelUser()
 	//获取全局文档
 	CMy22MedicineDoc* pDoc = (CMy22MedicineDoc*)frame->GetActiveDocument();
 
+	CUserSet* userSet = pDoc->GetUserSet();
+
 	CUser *user = pDoc->GetUser();
 	int ret = user->DeleteUser(m_strAccount);
-	if (ret == 0)
+	if (ret != 0)
 	{
-		m_strAccount.Empty();
-		UpdateData(FALSE);
-		AfxMessageBox(_T("删除成功"));
-		LoadUser();
+		return;
+		
 	}
-	else if(ret == -1)
+	m_strAccount.Empty();
+	UpdateData(FALSE);
+	AfxMessageBox(_T("删除成功"));
+	LoadUser();
+
+	//找到树视图
+	CUserTreeView *treeView = NULL;
+
+	POSITION pos = pDoc->GetFirstViewPosition();
+	while (pos !=NULL)
 	{
-		AfxMessageBox(_T("未设置数据线连接"));
+		CView *view = pDoc->GetNextView(pos);
+		if (view->IsKindOf(RUNTIME_CLASS(CUserTreeView)))
+		{
+			treeView = (CUserTreeView*)view;
+			break;
+		}
 	}
-	else if (ret == -2)
+
+	if (treeView == NULL)
 	{
-		AfxMessageBox(_T("删除用户不能是单前账户"));
+		return;
 	}
-	else
+
+	CTreeCtrl& treeCtrl = treeView->GetTreeCtrl();
+	treeCtrl.DeleteAllItems();
+
+	CString type[] = { _T("医生"),_T("管理员"),_T("售药员") };
+	int length = sizeof(type) / sizeof(type[0]);
+	for (int x = 0; x < length; x++)
 	{
-		AfxMessageBox(_T("删除的用户不存在"));
+		HTREEITEM root = treeCtrl.InsertItem(type[x], 0, 0, NULL);
+
+		CString sql;
+		sql.Format(TEXT("classification = '%s'"), type[x]);
+		userSet->m_strFilter = sql;
+
+		userSet->Requery();
+		HTREEITEM loginUserCur = NULL;
+		for (int y = 0; y < userSet->GetRecordCount(); y++)
+		{
+			CString str;
+
+			if (user->GetAccount() == userSet->m_account)
+			{
+				str.Format(TEXT("%s(%s)[%s]"), userSet->m_account, userSet->m_name,_T("登录用户"));
+			}
+			else
+			{
+				str.Format(TEXT("%s(%s)"), userSet->m_account, userSet->m_name);
+			}
+			loginUserCur = treeCtrl.InsertItem(str, x + 1, x + 1, root);
+			userSet->MoveNext();
+		}
+		if (loginUserCur != NULL)
+		{
+			treeCtrl.SelectItem(loginUserCur);
+
+		}
 	}
 
 }

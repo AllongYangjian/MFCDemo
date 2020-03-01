@@ -8,6 +8,9 @@
 #include "MainFrm.h"
 #include "CChangePwdDlg.h"
 #include "CDeleteDlg.h"
+#include "CMedicTypeDlg.h"
+#include "CMedicIDDlg.h"
+#include "CMedicNameDlg.h"
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
@@ -25,6 +28,9 @@ BEGIN_MESSAGE_MAP(CMainFrame, CFrameWnd)
 	ON_UPDATE_COMMAND_UI(ID_SEARCH_USER, &CMainFrame::OnUpdateSearchUser)
 	ON_COMMAND(ID_DELETE_USER, &CMainFrame::OnDeleteUser)
 	ON_COMMAND(ID_SEARCH_USER, &CMainFrame::OnSearchUser)
+	ON_COMMAND(ID_BY_TYPE, &CMainFrame::OnByType)
+	ON_COMMAND(ID_BY_ID, &CMainFrame::OnById)
+	ON_COMMAND(ID_BY_NAME, &CMainFrame::OnByName)
 END_MESSAGE_MAP()
 
 static UINT indicators[] =
@@ -160,4 +166,25 @@ void CMainFrame::OnDeleteUser()
 void CMainFrame::OnSearchUser()
 {
 	// TODO: 在此添加命令处理程序代码
+}
+
+//按药品类型查询
+void CMainFrame::OnByType()
+{
+	CMedicTypeDlg dlg;
+	dlg.DoModal();
+}
+
+
+void CMainFrame::OnById()
+{
+	CMedicIDDlg dlg;
+	dlg.DoModal();
+}
+
+
+void CMainFrame::OnByName()
+{
+	CMedicNameDlg dlg;
+	dlg.DoModal();
 }

@@ -102,17 +102,17 @@ void CUserTreeView::OnInitialUpdate()
 		HTREEITEM loginUserCur = NULL;
 		for (int y = 0; y < userSet->GetRecordCount(); y++)
 		{
+			CString str;
+
 			if (currentUser->GetAccount() == userSet->m_account)
 			{
-				CString str;
-				str.Format(TEXT("%s(%s)"), userSet->m_account, _T("登录用户"));
-				loginUserCur = treeCtrl.InsertItem(str, x + 1, x + 1, root);
+				str.Format(TEXT("%s(%s)[%s]"), userSet->m_account, userSet->m_name, _T("登录用户"));
 			}
 			else
 			{
-				treeCtrl.InsertItem(userSet->m_account, x + 1, x + 1, root);
+				str.Format(TEXT("%s(%s)"), userSet->m_account, userSet->m_name);
 			}
-			
+			loginUserCur = treeCtrl.InsertItem(str, x + 1, x + 1, root);
 			userSet->MoveNext();
 		}
 		if (loginUserCur != NULL)

@@ -81,9 +81,18 @@ void CMedicListView::OnInitialUpdate()
 	{
 		medicSet->Open();
 	}
-	medicSet->Requery();//查询结果
 
-	for (int x = 0; x < medicSet->GetRecordCount(); x++)
+	CMedicSearch* pSearch = pDoc->GetMedicSearch();
+	pSearch->SetMedicSet(medicSet);
+	pSearch->SetListCtrl(&listCtrl);
+
+	pSearch->SearchMedic();
+
+	//medicSet->Requery();//查询结果
+
+
+
+	/*for (int x = 0; x < medicSet->GetRecordCount(); x++)
 	{
 		CString str;
 		int j = 1;
@@ -113,6 +122,6 @@ void CMedicListView::OnInitialUpdate()
 		listCtrl.SetItemText(x, j++, str);
 
 		medicSet->MoveNext();
-	}
+	}*/
 	
 }

@@ -7,6 +7,7 @@
 #include "MedicSet.h"
 #include "UserSet.h"
 #include "CUser.h"
+#include "MedicSearch.h"
 
 class CMy22MedicineDoc : public CDocument
 {
@@ -14,6 +15,7 @@ private:
 	CMedicSet m_set;
 	CUserSet m_userSet;
 	CUser m_user;
+	CMedicSearch m_medic;
 protected: // 仅从序列化创建
 	CMy22MedicineDoc() noexcept;
 	DECLARE_DYNCREATE(CMy22MedicineDoc)
@@ -33,6 +35,11 @@ public:
 	CUser* GetUser()
 	{
 		return &m_user;
+	}
+
+	CMedicSearch* GetMedicSearch()
+	{
+		return &m_medic;
 	}
 
 // 操作
