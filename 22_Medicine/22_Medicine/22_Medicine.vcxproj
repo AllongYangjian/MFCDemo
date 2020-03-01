@@ -191,6 +191,7 @@
     <ClInclude Include="22_MedicineDoc.h" />
     <ClInclude Include="22_MedicineView.h" />
     <ClInclude Include="CChangePwdDlg.h" />
+    <ClInclude Include="CDeleteDlg.h" />
     <ClInclude Include="CLoginDlg.h" />
     <ClInclude Include="CMedicListView.h" />
     <ClInclude Include="CUser.h" />
@@ -207,6 +208,7 @@
     <ClCompile Include="22_MedicineDoc.cpp" />
     <ClCompile Include="22_MedicineView.cpp" />
     <ClCompile Include="CChangePwdDlg.cpp" />
+    <ClCompile Include="CDeleteDlg.cpp" />
     <ClCompile Include="CLoginDlg.cpp" />
     <ClCompile Include="CMedicListView.cpp" />
     <ClCompile Include="CUser.cpp" />

@@ -27,6 +27,8 @@ public:
 	int Login();
 
 	int ChangePwd(CString newPwd);
+
+	int DeleteUser(CString user);
 private:
 	CStringW	m_account;
 	CStringW	m_password;

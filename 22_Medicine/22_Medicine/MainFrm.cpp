@@ -7,6 +7,7 @@
 
 #include "MainFrm.h"
 #include "CChangePwdDlg.h"
+#include "CDeleteDlg.h"
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
@@ -151,7 +152,8 @@ BOOL CMainFrame::CheckUserPermission()
 
 void CMainFrame::OnDeleteUser()
 {
-	// TODO: 在此添加命令处理程序代码
+	CDeleteDlg dlg;
+	dlg.DoModal();
 }
 
 

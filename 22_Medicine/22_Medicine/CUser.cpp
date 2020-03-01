@@ -82,3 +82,31 @@ int CUser::ChangePwd(CString newPwd)
 	
 	return -4;
 }
+
+int CUser::DeleteUser(CString user)
+{
+	if (m_userSet == NULL)
+	{
+		return -1;
+	}
+
+	if (m_account == user)
+	{
+		return -2;
+	}
+
+	CString sql;
+	sql.Format(TEXT("account = '%s'"), user);
+	m_userSet->m_strFilter = sql;
+
+	m_userSet->Requery();
+
+	if (m_userSet->GetRecordCount() == 0)
+	{
+		return -3;
+	}
+
+	m_userSet->Delete();
+
+	return 0;
+}
