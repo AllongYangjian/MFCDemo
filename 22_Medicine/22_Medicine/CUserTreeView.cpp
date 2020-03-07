@@ -65,23 +65,29 @@ void CUserTreeView::OnInitialUpdate()
 		imgList.Add(icon[3]);
 	}
 	//获取树控件
-	CTreeCtrl& treeCtrl = this->GetTreeCtrl();
+	m_treeCtrl = &this->GetTreeCtrl();
 	//树控件设置图像列表
-	treeCtrl.SetImageList(&imgList, TVSIL_NORMAL);
+	m_treeCtrl->SetImageList(&imgList, TVSIL_NORMAL);
 
 	//treeCtrl.InsertItem(_T("测试"), 0, 0, NULL);
 
+	CLoginDlg dlg;
+	dlg.DoModal();
+	LoadUserInfo();
+}
+
+void CUserTreeView::LoadUserInfo()
+{
 	CMy22MedicineDoc *pDoc = (CMy22MedicineDoc *)GetDocument();
-	
+
 	CUserSet *userSet = pDoc->GetUserSet();
 
-	if (!userSet->IsOpen()) 
+	if (!userSet->IsOpen())
 	{
 		userSet->Open();
 	}
 
-	CLoginDlg dlg;
-	dlg.DoModal();
+	m_treeCtrl->DeleteAllItems();//删除旧的数据
 
 	userSet->m_strFilter = _T("");
 
@@ -92,8 +98,8 @@ void CUserTreeView::OnInitialUpdate()
 	int length = sizeof(type) / sizeof(type[0]);
 	for (int x = 0; x < length; x++)
 	{
-		HTREEITEM root = treeCtrl.InsertItem(type[x], 0, 0, NULL);
-		
+		HTREEITEM root = m_treeCtrl->InsertItem(type[x], 0, 0, NULL);
+
 		CString sql;
 		sql.Format(TEXT("classification = '%s'"), type[x]);
 		userSet->m_strFilter = sql;
@@ -112,15 +118,13 @@ void CUserTreeView::OnInitialUpdate()
 			{
 				str.Format(TEXT("%s(%s)"), userSet->m_account, userSet->m_name);
 			}
-			loginUserCur = treeCtrl.InsertItem(str, x + 1, x + 1, root);
+			loginUserCur = m_treeCtrl->InsertItem(str, x + 1, x + 1, root);
 			userSet->MoveNext();
 		}
 		if (loginUserCur != NULL)
 		{
-			treeCtrl.SelectItem(loginUserCur);
-		
+			m_treeCtrl->SelectItem(loginUserCur);
+
 		}
 	}
-
-
 }

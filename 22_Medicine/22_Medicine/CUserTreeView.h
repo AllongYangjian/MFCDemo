@@ -24,4 +24,8 @@ public:
 	virtual void OnInitialUpdate();
 	//只有作为成员变量数据才会出来
 	CImageList imgList;
+
+	void LoadUserInfo();
+private:
+	CTreeCtrl* m_treeCtrl;
 };

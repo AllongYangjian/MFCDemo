@@ -198,6 +198,7 @@
     <ClInclude Include="CMedicNameDlg.h" />
     <ClInclude Include="CMedicTypeDlg.h" />
     <ClInclude Include="CUser.h" />
+    <ClInclude Include="CUserRegisterDlg.h" />
     <ClInclude Include="CUserTreeView.h" />
     <ClInclude Include="MainFrm.h" />
     <ClInclude Include="MedicSearch.h" />
@@ -219,6 +220,7 @@
     <ClCompile Include="CMedicNameDlg.cpp" />
     <ClCompile Include="CMedicTypeDlg.cpp" />
     <ClCompile Include="CUser.cpp" />
+    <ClCompile Include="CUserRegisterDlg.cpp" />
     <ClCompile Include="CUserTreeView.cpp" />
     <ClCompile Include="MainFrm.cpp" />
     <ClCompile Include="MedicSearch.cpp" />

@@ -12,6 +12,7 @@
 #include "CMedicIDDlg.h"
 #include "CMedicNameDlg.h"
 #include "MedicSearch.h"
+#include "CUserRegisterDlg.h"
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
@@ -127,7 +128,8 @@ void CMainFrame::OnChangePwd()
 //添加用户
 void CMainFrame::OnAddUser()
 {
-	// TODO: 在此添加命令处理程序代码
+	CUserRegisterDlg dlg;
+	dlg.DoModal();
 }
 
 
@@ -165,10 +167,10 @@ void CMainFrame::OnDeleteUser()
 	dlg.DoModal();
 }
 
-
+//查询用户
 void CMainFrame::OnSearchUser()
 {
-	// TODO: 在此添加命令处理程序代码
+	//todo 查询用户代码	
 }
 
 //按药品类型查询

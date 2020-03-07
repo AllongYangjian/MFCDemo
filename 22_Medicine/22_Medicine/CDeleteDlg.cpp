@@ -209,8 +209,9 @@ void CDeleteDlg::OnBnClickedButtonDelUser()
 	{
 		return;
 	}
+	treeView->LoadUserInfo();
 
-	CTreeCtrl& treeCtrl = treeView->GetTreeCtrl();
+	/*CTreeCtrl& treeCtrl = treeView->GetTreeCtrl();
 	treeCtrl.DeleteAllItems();
 
 	CString type[] = { _T("医生"),_T("管理员"),_T("售药员") };
@@ -245,6 +246,6 @@ void CDeleteDlg::OnBnClickedButtonDelUser()
 			treeCtrl.SelectItem(loginUserCur);
 
 		}
-	}
+	}*/
 
 }

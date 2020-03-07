@@ -72,6 +72,9 @@
     <ClInclude Include="CMedicNameDlg.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="CUserRegisterDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="22_Medicine.cpp">
@@ -123,6 +126,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="CMedicNameDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CUserRegisterDlg.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
