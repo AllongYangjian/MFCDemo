@@ -13,6 +13,7 @@
 #include "CMedicNameDlg.h"
 #include "MedicSearch.h"
 #include "CUserRegisterDlg.h"
+#include "CUserTreeView.h"
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
@@ -170,7 +171,28 @@ void CMainFrame::OnDeleteUser()
 //查询用户
 void CMainFrame::OnSearchUser()
 {
-	//todo 查询用户代码	
+	//获取框架
+	CMainFrame* frame = (CMainFrame*)AfxGetMainWnd();
+	//获取全局文档
+	CMy22MedicineDoc* pDoc = (CMy22MedicineDoc*)frame->GetActiveDocument();
+	//添加查询用户的代码
+	//找到树视图
+	CUserTreeView *treeView = NULL;
+	
+	POSITION pos = pDoc->GetFirstViewPosition();
+	while (pos!=NULL)
+	{
+		CView *view = pDoc->GetNextView(pos);
+		if (view->IsKindOf(RUNTIME_CLASS(CUserTreeView)))
+		{
+			treeView = (CUserTreeView*)view;
+			break;
+		}
+	}
+	if (treeView != NULL)
+	{
+		treeView->LoadUserInfo();
+	}
 }
 
 //按药品类型查询
