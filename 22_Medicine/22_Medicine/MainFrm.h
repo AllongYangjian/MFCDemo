@@ -17,9 +17,11 @@ private:
 	//CMy22MedicineDoc *pDoc;//不能作为成员变量
 // 特性
 public:
-	//CMy22MedicineDoc* GetDocument();
+
 	BOOL CheckUserPermission();
-// 操作
+	CUserTreeView* FindTreeView();
+	CMedicListView* FindListView();
+	// 操作
 public:
 
 // 重写

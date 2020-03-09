@@ -164,6 +164,40 @@ BOOL CMainFrame::CheckUserPermission()
 	}
 }
 
+CUserTreeView * CMainFrame::FindTreeView()
+{
+	CMy22MedicineDoc *pDoc = (CMy22MedicineDoc*)GetActiveDocument();
+	
+	POSITION pos = pDoc->GetFirstViewPosition();
+	while (pos != NULL)
+	{
+		CView *view = pDoc->GetNextView(pos);
+		if (view->IsKindOf(RUNTIME_CLASS(CUserTreeView)))
+		{
+			return (CUserTreeView*)view;
+		}
+	}
+
+	return nullptr;
+}
+
+CMedicListView * CMainFrame::FindListView()
+{
+	CMy22MedicineDoc *pDoc = (CMy22MedicineDoc*)GetActiveDocument();
+	
+	POSITION pos = pDoc->GetFirstViewPosition();
+	while(pos != NULL)
+	{
+		CView *view = pDoc->GetNextView(pos);
+		if (view->IsKindOf(RUNTIME_CLASS(CMedicListView)))
+		{
+			return (CMedicListView*)view;
+		}
+	}
+
+	return nullptr;
+}
+
 
 void CMainFrame::OnDeleteUser()
 {
@@ -173,25 +207,9 @@ void CMainFrame::OnDeleteUser()
 
 //查询用户
 void CMainFrame::OnSearchUser()
-{
-	//获取框架
-	CMainFrame* frame = (CMainFrame*)AfxGetMainWnd();
-	//获取全局文档
-	CMy22MedicineDoc* pDoc = (CMy22MedicineDoc*)frame->GetActiveDocument();
-	//添加查询用户的代码
-	//找到树视图
-	CUserTreeView *treeView = NULL;
-	
-	POSITION pos = pDoc->GetFirstViewPosition();
-	while (pos!=NULL)
-	{
-		CView *view = pDoc->GetNextView(pos);
-		if (view->IsKindOf(RUNTIME_CLASS(CUserTreeView)))
-		{
-			treeView = (CUserTreeView*)view;
-			break;
-		}
-	}
+{	
+	CUserTreeView *treeView = FindTreeView();
+
 	if (treeView != NULL)
 	{
 		treeView->LoadUserInfo();
@@ -250,24 +268,11 @@ void CMainFrame::OnChangeUser()
 	CLoginDlg dlg;
 	dlg.DoModal();
 	
-	CMy22MedicineDoc *pDoc =  (CMy22MedicineDoc *)GetActiveDocument();
+	CUserTreeView *treeView = FindTreeView();
 
-	POSITION pos = pDoc->GetFirstViewPosition();
-
-	CUserTreeView *treeview = NULL;
-
-	while (pos!=NULL)
+	if(treeView !=NULL)
 	{
-		CView *view = pDoc->GetNextView(pos);
-		if (view->IsKindOf(RUNTIME_CLASS(CUserTreeView))) {
-
-			treeview = (CUserTreeView*)view;
-			break;
-		}
-	}
-	if(treeview!=NULL)
-	{
-		treeview->LoadUserInfo();
+		treeView->LoadUserInfo();
 	}
 
 }

@@ -192,9 +192,9 @@ void CDeleteDlg::OnBnClickedButtonDelUser()
 	LoadUser();
 
 	//找到树视图
-	CUserTreeView *treeView = NULL;
+	CUserTreeView *treeView = frame->FindTreeView();
 
-	POSITION pos = pDoc->GetFirstViewPosition();
+	/*POSITION pos = pDoc->GetFirstViewPosition();
 	while (pos !=NULL)
 	{
 		CView *view = pDoc->GetNextView(pos);
@@ -204,7 +204,7 @@ void CDeleteDlg::OnBnClickedButtonDelUser()
 			break;
 		}
 	}
-
+*/
 	if (treeView == NULL)
 	{
 		return;
