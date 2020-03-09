@@ -60,6 +60,7 @@ public:
 	afx_msg void OnSearchZero();
 	afx_msg void OnExitSystem();
 	afx_msg void OnChangeUser();
+	afx_msg void OnSearchExpire();
 };
 
 

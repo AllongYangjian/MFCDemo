@@ -39,6 +39,7 @@ BEGIN_MESSAGE_MAP(CMainFrame, CFrameWnd)
 	ON_COMMAND(ID_SEARCH_ZERO, &CMainFrame::OnSearchZero)
 	ON_COMMAND(ID_EXIT_SYSTEM, &CMainFrame::OnExitSystem)
 	ON_COMMAND(ID_CHANGE_USER, &CMainFrame::OnChangeUser)
+	ON_COMMAND(ID_SEARCH_EXPIRE, &CMainFrame::OnSearchExpire)
 END_MESSAGE_MAP()
 
 static UINT indicators[] =
@@ -275,4 +276,12 @@ void CMainFrame::OnChangeUser()
 		treeView->LoadUserInfo();
 	}
 
+}
+
+//查询过期药品
+void CMainFrame::OnSearchExpire()
+{
+	CMy22MedicineDoc* pDoc = (CMy22MedicineDoc*)GetActiveDocument();
+	CMedicSearch *pSearch = pDoc->GetMedicSearch();
+	pSearch->SearchMedic(_T(""),true);
 }

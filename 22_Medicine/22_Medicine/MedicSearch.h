@@ -12,7 +12,7 @@ public:
 	
 	//int SearchByType(CString type = TEXT("所有类型"));
 
-	int SearchMedic(CString sql  =TEXT(""),BOOL expire = FALSE);
+	int SearchMedic(const CString sql  =TEXT(""),BOOL expire = FALSE);
 
 private:
 	CMedicSet *m_set;
