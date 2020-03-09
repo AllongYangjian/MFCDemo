@@ -56,6 +56,8 @@ public:
 	afx_msg void OnByName();
 	afx_msg void OnSearchAll();
 	afx_msg void OnSearchZero();
+	afx_msg void OnExitSystem();
+	afx_msg void OnChangeUser();
 };
 
 

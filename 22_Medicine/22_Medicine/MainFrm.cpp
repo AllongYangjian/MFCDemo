@@ -14,6 +14,7 @@
 #include "MedicSearch.h"
 #include "CUserRegisterDlg.h"
 #include "CUserTreeView.h"
+#include "CLoginDlg.h"
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
@@ -36,6 +37,8 @@ BEGIN_MESSAGE_MAP(CMainFrame, CFrameWnd)
 	ON_COMMAND(ID_BY_NAME, &CMainFrame::OnByName)
 	ON_COMMAND(ID_SEARCH_ALL, &CMainFrame::OnSearchAll)
 	ON_COMMAND(ID_SEARCH_ZERO, &CMainFrame::OnSearchZero)
+	ON_COMMAND(ID_EXIT_SYSTEM, &CMainFrame::OnExitSystem)
+	ON_COMMAND(ID_CHANGE_USER, &CMainFrame::OnChangeUser)
 END_MESSAGE_MAP()
 
 static UINT indicators[] =
@@ -233,4 +236,38 @@ void CMainFrame::OnSearchZero()
 	CString sql;
 	sql.Format(TEXT("number =%d"), 0);
 	pSearch->SearchMedic(sql);
+}
+
+
+void CMainFrame::OnExitSystem()
+{
+	exit(1);
+}
+
+
+void CMainFrame::OnChangeUser()
+{
+	CLoginDlg dlg;
+	dlg.DoModal();
+	
+	CMy22MedicineDoc *pDoc =  (CMy22MedicineDoc *)GetActiveDocument();
+
+	POSITION pos = pDoc->GetFirstViewPosition();
+
+	CUserTreeView *treeview = NULL;
+
+	while (pos!=NULL)
+	{
+		CView *view = pDoc->GetNextView(pos);
+		if (view->IsKindOf(RUNTIME_CLASS(CUserTreeView))) {
+
+			treeview = (CUserTreeView*)view;
+			break;
+		}
+	}
+	if(treeview!=NULL)
+	{
+		treeview->LoadUserInfo();
+	}
+
 }
